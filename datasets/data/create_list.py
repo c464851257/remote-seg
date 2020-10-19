@@ -2,8 +2,8 @@ import os
 
 path = 'VOCdevkit/VOC2012/JPEGImages/'
 
-img_list = open('train_aug.txt','w')
-img_list_val = open('val_aug.txt','w')
+img_list = open('test.txt','w')
+# img_list_val = open('val_aug.txt','w')
 
 imgs = os.listdir(path)
 count = 0
