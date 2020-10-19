@@ -95,9 +95,9 @@ class VOCSegmentation(data.Dataset):
             is_aug = True
             year = '2012'
         
-        self.root = os.path.expanduser(root)
+        # self.root = os.path.expanduser(root)
         # self.root = 'D:\\Users\\python\\pytorch\\DeepLabV3Plus-Pytorch-master\\datasets\\data\\'
-        self.root = 'F:\\other\\image_A'
+        self.root = root
         self.year = year
         self.url = DATASET_YEAR_DICT[year]['url']
         self.filename = DATASET_YEAR_DICT[year]['filename']
@@ -107,7 +107,8 @@ class VOCSegmentation(data.Dataset):
         self.image_set = image_set
         base_dir = DATASET_YEAR_DICT[year]['base_dir']
         # voc_root = os.path.join(self.root, base_dir)
-        voc_root = 'F:\\other\\image_A\\VOCdevkit\\VOC2012'
+        # voc_root = 'F:\\other\\image_A\\VOCdevkit\\VOC2012'
+        voc_root = os.path.join(self.root, 'VOCdevkit\\VOC2012')
         # voc_root = 'D:\\Users\\python\\pytorch\\DeepLabV3Plus-Pytorch-master\\datasets\\data\\VOCdevkit\\VOC2012'
         image_dir = os.path.join(voc_root, 'JPEGImages')
 
@@ -125,8 +126,9 @@ class VOCSegmentation(data.Dataset):
         else:
             mask_dir = os.path.join(voc_root, 'SegmentationClassAug')
             splits_dir = os.path.join(voc_root, 'ImageSets/Segmentation')
+            # split_f = os.path.join(self.root, 'val.txt')
             split_f = 'D:\\Users\\python\\pytorch\\DeepLabV3Plus-Pytorch-master\\datasets\\data\\val.txt'
-        split_f = 'F:\\other\\image_A\\val.txt'
+        split_f = os.path.join(self.root, 'tese.txt')
         if not os.path.exists(split_f):
             raise ValueError(
                 'Wrong image_set entered! Please use image_set="train" '
@@ -149,6 +151,7 @@ class VOCSegmentation(data.Dataset):
         img = Image.open(self.images[index]).convert('RGB')
         # print(self.images[index])
         # img = cv2.imread(self.images[index], cv2.IMREAD_UNCHANGED)
+        # if ops.test_only:
         self.masks[index] = 'D:\\Users\\python\\pytorch\\DeepLabV3Plus-Pytorch-master\\datasets\\data\\VOCdevkit\\VOC2012\\SegmentationClassAug\\5.png'
         target = np.asarray(Image.open(self.masks[index])) //100 - 1
         target = Image.fromarray(target)
