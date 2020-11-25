@@ -1,6 +1,6 @@
 模型新增了res2net
 
-增加了ohem，label smooth，focal loss
+增加了ohem，label smooth，focal loss，lovasz loss
 
 采用余玄退火学习率
 
