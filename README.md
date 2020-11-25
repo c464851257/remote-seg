@@ -1,15 +1,11 @@
+代码来自:https://github.com/VainF/DeepLabV3Plus-Pytorch
+
+
 模型新增了res2net
 
 增加了ohem，label smooth，focal loss，lovasz loss
 
 采用余玄退火学习率
-
-
-
-
-
-
-
 
 
 新建一个文件夹checkpoints
