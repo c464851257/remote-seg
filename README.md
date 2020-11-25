@@ -1,3 +1,17 @@
+模型新增了res2net
+
+增加了ohem，label smooth，focal loss
+
+采用余玄退火学习率
+
+
+
+
+
+
+
+
+
 新建一个文件夹checkpoints
 
 下载训练好的权重放进checkpoints
